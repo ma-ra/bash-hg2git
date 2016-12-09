@@ -25,6 +25,16 @@ cd $WORK/temp
 git clone git-repo.git git-repo-after
 rm -Rf git-repo.git
 
+# change author information in log
+cd $WORK/temp/git-repo-after
+git checkout
+git filter-branch -f --env-filter "
+    GIT_AUTHOR_NAME='Marek Ramotowski'
+    GIT_AUTHOR_EMAIL='ma-ra@users.noreply.github.com'
+    GIT_COMMITTER_NAME='Marek Ramotowski'
+    GIT_COMMITTER_EMAIL='ma-ra@users.noreply.github.com'
+  " HEAD
+
 # show files in repository to check removal
 cd $WORK/temp/git-repo-after
 git log --diff-filter=D --summary | grep delete
