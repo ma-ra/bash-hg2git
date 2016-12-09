@@ -1,0 +1,3 @@
+example@mail.pl==>ma-ra@users.noreply.github.com
+some_password==>{password_for_database}
+regex:.password. *=>.*==>'password' => '{password_for_database}'
